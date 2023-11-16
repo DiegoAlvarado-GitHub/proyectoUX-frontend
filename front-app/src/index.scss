@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#app{
+  height: 100%;
+  width: 100%;
+}
+
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+
+.contenedor-primario {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  grid-template: "nav" 10%
+                  "dashboard" 5%
+                  "body" auto /
+                  100%;
+}
+
+.contenedor-padre {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0;
+  border: 0;
+  display: grid;
+  justify-content: center;
+  background-color:  #ffffff;
+  grid-area: body;
+  gap: 30px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 25% 25% 50%;
+  grid-template-areas:  "ultimas_reuniones ultimas_reuniones compromisos_atrasados"
+                        "acta proximo_compromiso compromisos_atrasados";
+}
+
+.nav {
+  display: grid;
+  grid-area: nav;
+  grid-template-columns: auto 1fr auto; /* Crea tres columnas: auto, el contenido principal con un ancho flexible y auto */
+  align-items: center; /* Alinea verticalmente en el centro */
+  gap: 10px;
+  justify-items: center;
+  background-color: #e4f2fd;
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  font-family: Segoe UI;
+  color: #22252a;
+}
+
+
+.dashboard{
+  grid-area: dashboard;
+  display: flex;
+  justify-content:left;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 2rem;
+
+}
+.titulo{
+  font-size: xxx-large;
+    font-weight: bold;
+}
+
+
+.seccion-derecha-nav i{
+  font-size: 28px;
+}
+
+.p20l {
+  padding-left: 20px;
+}
+
+
+
+.contenedor-compromisos-atrasados {
+  grid-area: compromisos_atrasados;
+  padding: 2%;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background-color: #e4f2fd;
+  color: #22252a;
+  font-family: Segoe UI;
+}
+
+.contenedor-ultimas-reuniones {
+  padding: 2%;
+  grid-area: ultimas_reuniones;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e4f2fd;
+  color: #22252a;
+  font-family: Segoe UI;
+}
+
+
+
+
+.contenedor-actas {
+  padding: 2%;
+  grid-area: acta;
+  background-color: #f5f5f5;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  background-color: #e4f2fd;
+  color: #22252a;
+  font-family: Segoe UI;
+}
+
+.contenedor-prox-compromisos {
+  padding: 2%;
+  grid-area: proximo_compromiso;
+  background-color: #f5f5f5;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  background-color: #e4f2fd;
+  color: #22252a;
+  font-family: Segoe UI;
+}
+
+/*
+.contenedor-actas{
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  margin-right: 3%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenedor-prox-compromisos{
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  margin-left: 3%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+@media(max-width: 800px){
+  .contenedor-padre {
+    margin: 0;
+    border: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background-color:  #ffffff;
+    grid-area: body;
+    grid-template-rows: repeat(4, 300px);
+    grid-template-columns: 100%;
+    grid-template-areas:  "ultimas_reuniones"
+                          "compromisos_atrasados"
+                          "acta"
+                          "proximo_compromiso";
+  }
+  .contenedor-primario {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: grid;
+    height: 100%;
+    justify-content: center;
+    grid-template: "nav" 10%
+                    "dashboard" 5%
+                    "body" auto /
+                    100%;
+  }
+}
