@@ -84,6 +84,20 @@ body {
 
 .seccion-derecha-nav i{
   font-size: 28px;
+  cursor: pointer;
+}
+
+.menu-icon,
+.fa-user,
+.fa-cog {
+  //font-size: 24px; /* Tamaño inicial del ícono */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.menu-icon:hover, 
+.fa-user:hover,
+.fa-cog:hover {
+  transform: scale(1.2); /* Aumentar el tamaño al pasar el cursor por encima */
 }
 
 .p20l {
@@ -208,4 +222,8 @@ body {
                     "body" auto /
                     100%;
   }
+}
+
+.contenedor-padre h1{
+  cursor: pointer;
 }

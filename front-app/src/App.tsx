@@ -1,9 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import MicrofrontendComponent from "./MicrofrontendComponent";
 
 import "./index.scss";
 
+
+// FUNCION PARA ENVIAR INFO AL MICROFRONT
+const sendMessageToMicrofrontend = () => {
+  const iframe = document.querySelector('iframe'); // Obtén la referencia al iframe del microfrontend
+  if (iframe) {
+    const message = {
+      name: 'Nicolas S',
+      room: 'Sala1',
+      // Otra información que desees enviar
+    };
+    iframe.contentWindow?.postMessage(message, 'http://localhost:3000'); // Reemplaza con la URL correcta del microfrontend
+  }
+  console.log("enviado")
+};
+
 const App = () => (
+
+
+
+
+
   // <div className="mt-10 text-3xl mx-auto max-w-6xl">
   //   <div>Name: front-app</div>
   //   <div>Framework: react</div>
@@ -14,13 +35,14 @@ const App = () => (
   <div className="contenedor-primario">
 
 
+
     {/* Seccion del Navbar  HEADER */}
     <div className="nav">
 
 
 
-      <div className="seccion-izquierda-nav">
-        <svg width="35" height="35" viewBox="0 0 24 24" role="presentation"><path d="M5 15h14v2H5zm0-8h14v2H5zm0 4h14v2H5z" fill="currentColor" fill-rule="evenodd"></path></svg>
+      <div className="seccion-izquierda-nav" title="Desplegar menu">
+        <svg className="menu-icon" width="35" height="35" viewBox="0 0 24 24" role="presentation"><path d="M5 15h14v2H5zm0-8h14v2H5zm0 4h14v2H5z" fill="currentColor" fill-rule="evenodd"></path></svg>
       </div>
 
       <div className="seccion-medio-nav">
@@ -29,32 +51,36 @@ const App = () => (
 
       <div className="seccion-derecha-nav">
 
-        <i className="fas fa-user"></i>
-        
-        <i className="fas fa-cog p20l"></i>
+        <i className="fas fa-user" title="Ir a mi perfil"></i>
+
+        <i className="fas fa-cog p20l" title="Ir a configuraciones"></i>
       </div>
     </div>
 
-    <h1 className="dashboard">Dashboard</h1> 
-    
+    <h1 className="dashboard">Dashboard</h1>
+
     {/* BODY */}
     <div className="contenedor-padre">
-        <div className="contenedor-ultimas-reuniones">
-          <h1>Ultimas reuniones</h1>
-        </div>
+      <div className="contenedor-ultimas-reuniones">
+        <h1 title="Ir a reuniones">Ultimas reuniones</h1>
+        {/* Botón para enviar el mensaje al microfrontend */}
+        <button onClick={sendMessageToMicrofrontend}>Enviar Mensaje</button>
+      </div>
 
-        <div className="contenedor-actas">
-          <h1>Actas sin finalizar</h1>
-        </div>
+      <div className="contenedor-actas">
+        <h1 title="Ir a actas">Actas sin finalizar</h1>
+      </div>
 
-        <div className="contenedor-prox-compromisos">
-          <h1>Proximos compromisos</h1>
-        </div>
-      
+      <div className="contenedor-prox-compromisos">
+        <h1 title="Ir a compromisos">Proximos compromisos</h1>
 
-        <div className="contenedor-compromisos-atrasados">
-          <h1>Compromisos atrasados</h1>
-        </div>
+      </div>
+
+
+      <div className="contenedor-compromisos-atrasados">
+        <h1 title="Ir a compromisos">Compromisos atrasados</h1>
+        <MicrofrontendComponent />
+      </div>
 
     </div>
   </div>
