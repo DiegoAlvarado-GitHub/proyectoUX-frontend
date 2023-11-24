@@ -1,0 +1,32 @@
+.premeetingMain{
+    display: grid;
+    background-color: bisque;
+    /*grid-template: "card1 card2 " 100% / 50% 50%;*/
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:  "card1 card2";
+    
+    width: 100%;
+    height: 100%;
+}
+
+.card1{
+    display: flex;
+    background-color: darkblue;
+    grid-area: card1;
+    width: 100%;
+    height: 100%;
+}
+
+.card2{
+    display: flex;
+    background-color: darkcyan;
+    grid-area: card2;
+    width: 100%;
+    height: 100%;
+}
+
+
+.slidebar{
+    display: none;
+}
