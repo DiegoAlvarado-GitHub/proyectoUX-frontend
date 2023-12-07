@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/PremeetingComponent.scss";
 import MicrofrontendComponent from '../MicrofrontendComponent';
+import MicrofrontendComponent2 from '../MicrofrontendComponent2';
 
 
 import { Fragment, useCallback, useState } from 'react';
@@ -12,6 +13,8 @@ import {
   Main,
   PageLayout,
   RightSidebar,
+  LeftSidebar,
+  LeftSidebarState,
 } from '@atlaskit/page-layout';
 
 import {
@@ -20,14 +23,19 @@ import {
   SlotWrapper,
   Toggle,
   ToggleBox,
+  ExpandLeftSidebarKeyboardShortcut,
 } from '../resources';
 
 type SlotName =
+  | 'LeftSidebar'
   | 'Main'
   | 'RightSidebar'
   | 'PageLayout';
 
 const initialState = {
+    isLeftSidebarShown: true,
+    isLeftSidebarFixed: true,
+    isLeftSidebarScrollable: false,
     isMainShown: true,
     isRightSidebarShown: true,
     isMainScrollable: true,
@@ -131,6 +139,43 @@ const PremeetingComponent = () => {
       {gridState.isPageLayoutShown && (
         <PageLayout>
           <Content testId="content">
+
+
+
+            {gridState.isLeftSidebarShown && (
+              <LeftSidebar
+                testId="left-sidebar"
+                id="left-sidebar"
+                skipLinkTitle="Project Navigation"
+                isFixed={gridState.isLeftSidebarFixed}
+                onResizeStart={(state: LeftSidebarState) =>
+                  console.log('onResizeStart', state)
+                }
+                onResizeEnd={(state: LeftSidebarState) =>
+                  console.log('onResizeEnd', state)
+                }
+                onFlyoutExpand={() => console.log('onFlyoutExpand')}
+                onFlyoutCollapse={() => console.log('onFlyoutCollapse')}
+                resizeGrabAreaLabel="Resize Current project sidebar"
+                resizeButtonLabel="Current project sidebar"
+                valueTextLabel="Width"
+                // eslint-disable-next-line @repo/internal/react/no-unsafe-overrides
+                
+              >
+                <SlotWrapper hasExtraPadding hasHorizontalScrollbar={false}>
+                  {/* <SlotLabel>Proyectos</SlotLabel> */}
+                  {/* llamar microfrontend proyectos */}
+                  <MicrofrontendComponent2 />
+
+                </SlotWrapper>
+
+                <ExpandLeftSidebarKeyboardShortcut />
+              </LeftSidebar>
+            )}
+
+
+
+
 
 
 

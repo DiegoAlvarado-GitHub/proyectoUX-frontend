@@ -5,7 +5,7 @@ const MicrofrontendComponent: React.FC = () => {
   useEffect(() => {
     const microfrontendA = document.getElementById('microfrontendA');
     const iframeA = document.createElement('iframe');
-    iframeA.src = 'http://localhost:3000/'; // Reemplaza con la URL correcta del microfrontend
+    iframeA.src = 'http://localhost:3031/'; // Reemplaza con la URL correcta del microfrontend
     iframeA.style.width = '100%'; // Ancho del iframe al 100% del contenedor
     iframeA.style.height = '800px'; // Altura del iframe (por ejemplo, 400px)
     microfrontendA?.appendChild(iframeA);

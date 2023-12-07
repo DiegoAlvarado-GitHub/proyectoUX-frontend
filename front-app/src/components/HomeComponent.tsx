@@ -12,7 +12,7 @@ const sendMessageToMicrofrontend = () => {
         room: 'Sala1',
         // Otra información que desees enviar
       };
-      iframe.contentWindow?.postMessage(message, 'http://localhost:3000'); // Reemplaza con la URL correcta del microfrontend
+      iframe.contentWindow?.postMessage(message, 'http://localhost:3031'); // Reemplaza con la URL correcta del microfrontend
     }
     console.log("enviado")
 };
