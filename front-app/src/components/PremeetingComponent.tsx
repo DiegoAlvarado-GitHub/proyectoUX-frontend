@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/PremeetingComponent.scss";
 import MicrofrontendComponent from '../MicrofrontendComponent';
 import MicrofrontendComponent2 from '../MicrofrontendComponent2';
+import MicrofrontendComponent3 from '../MicrofrontendComponent3';
 
 
 import { Fragment, useCallback, useState } from 'react';
@@ -33,16 +34,16 @@ type SlotName =
   | 'PageLayout';
 
 const initialState = {
-    isLeftSidebarShown: true,
-    isLeftSidebarFixed: true,
-    isLeftSidebarScrollable: false,
-    isMainShown: true,
-    isRightSidebarShown: true,
-    isMainScrollable: true,
-    isMainExtraWide: false,
-    isRightSidebarFixed: false,
-    isRightSidebarScrollable: false,
-    isPageLayoutShown: true,
+  isLeftSidebarShown: true,
+  isLeftSidebarFixed: true,
+  isLeftSidebarScrollable: false,
+  isMainShown: true,
+  isRightSidebarShown: true,
+  isMainScrollable: true,
+  isMainExtraWide: false,
+  isRightSidebarFixed: false,
+  isRightSidebarScrollable: false,
+  isPageLayoutShown: true,
 };
 
 
@@ -159,17 +160,10 @@ const PremeetingComponent = () => {
                 resizeGrabAreaLabel="Resize Current project sidebar"
                 resizeButtonLabel="Current project sidebar"
                 valueTextLabel="Width"
-                // eslint-disable-next-line @repo/internal/react/no-unsafe-overrides
-                
+              // eslint-disable-next-line @repo/internal/react/no-unsafe-overrides
+
               >
-                <SlotWrapper hasExtraPadding hasHorizontalScrollbar={false}>
-                  {/* <SlotLabel>Proyectos</SlotLabel> */}
-                  {/* llamar microfrontend proyectos */}
-                  <MicrofrontendComponent2 />
-
-                </SlotWrapper>
-
-                <ExpandLeftSidebarKeyboardShortcut />
+                <MicrofrontendComponent2 />
               </LeftSidebar>
             )}
 
@@ -184,15 +178,16 @@ const PremeetingComponent = () => {
               <Main id="main" skipLinkTitle="Main">
                 <SlotWrapper>
                   <SlotLabel>Main</SlotLabel>
-                  <ToggleScrollable slotName="Main" />
-                  <Button  onClick={() => setGridState({ ...gridState, isRightSidebarShown: !gridState.isRightSidebarShown })} appearance="primary">Abrir Chat</Button>
+                  {/* <ToggleScrollable slotName="Main" />
+                  <Button onClick={() => setGridState({ ...gridState, isRightSidebarShown: !gridState.isRightSidebarShown })} appearance="primary">Abrir Chat</Button> */}
+                  <MicrofrontendComponent3 />
                 </SlotWrapper>
               </Main>
-            )} 
+            )}
 
 
 
-            
+
 
 
 
@@ -201,9 +196,9 @@ const PremeetingComponent = () => {
             {gridState.isRightSidebarShown && (
               <RightSidebar isFixed={gridState.isRightSidebarFixed} width={500}>
                 <SlotWrapper borderColor={token('color.border.accent.green', 'darkgreen')}>
-                <SlotLabel>Salas de Chat</SlotLabel>
-                {/* <p>AQUI LLAMAR AL MICROFRONTEND DEL CHAT</p>*/}
-                <MicrofrontendComponent />
+                  <SlotLabel>Salas de Chat</SlotLabel>
+                  {/* <p>AQUI LLAMAR AL MICROFRONTEND DEL CHAT</p>*/}
+                  <MicrofrontendComponent />
 
                 </SlotWrapper>
               </RightSidebar>
@@ -213,13 +208,13 @@ const PremeetingComponent = () => {
 
 
 
-            
+
           </Content>
         </PageLayout>
       )}
       <ToggleBox>
         <ToggleShown slotName="Main" />
-        <Button  onClick={() => setGridState({ ...gridState, isRightSidebarShown: !gridState.isRightSidebarShown })} appearance="primary">Abrir Chat</Button>
+        <Button onClick={() => setGridState({ ...gridState, isRightSidebarShown: !gridState.isRightSidebarShown })} appearance="primary">Abrir Chat</Button>
       </ToggleBox>
     </Fragment>
   );
